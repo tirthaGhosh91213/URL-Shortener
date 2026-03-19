@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚡ Smart URL Shortener</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, #4facfe, transparent 40%),
+                  radial-gradient(circle at bottom right, #a18cd1, transparent 40%),
+                  #0f172a;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #4facfe;
+      box-shadow: 0 0 0 3px rgba(79,172,254,0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(90deg, #4facfe, #a18cd1);
+      color: #0f172a;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(79,172,254,0.3);
+    }
+
+    .list {
+      margin-top: 25px;
+    }
+
+    .list h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      transition: 0.2s;
+    }
+
+    li:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79,172,254,0.5);
+    }
+
+    /* 🔥 FIXED LINK STYLE */
+    a {
+      color: #4facfe;
+      text-decoration: none;
+      font-size: 14px;
+
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* 👇 Hover করলে full link দেখা যাবে */
+    li:hover a {
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    small {
+      font-size: 12px;
+      opacity: 0.7;
+      word-break: break-word;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>⚡ URL Shortener</h1>
+    <p>Convert long URLs into short, clean links instantly</p>
+
+    <form method="POST" action="/">
+      <div class="input-group">
+        <input type="text" name="url" placeholder="Enter long URL..." required />
+      </div>
+
+      <div class="input-group">
+        <input type="text" name="shortCode" placeholder="Custom code (optional)" />
+      </div>
+
+      <button type="submit">🚀 Shorten URL</button>
+    </form>
+
+    <div class="list">
+      <h2>🔗 Your Links</h2>
+      <ul>
+        {{shortened_url}}
+      </ul>
+    </div>
+
+    <div class="footer">
+      Built with ❤️ by You
+    </div>
+  </div>
+
+</body>
+</html>
