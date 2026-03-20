@@ -1,6 +1,6 @@
 
 import crypto from "crypto";
-import { readFile } from "fs/promises";
+// import { readFile } from "fs/promises";
 import path from "path";
 import { loadLinks, saveLinks } from "../Models/models.js";
 
@@ -29,23 +29,12 @@ export const postUrlShortner=  async (req, res) => {
 
 export const getURLShortner=async (req, res) => {
   try {
-    const html = await readFile(path.join("public", "index.html"), "utf-8");
+    // const html = await readFile(path.join("public", "index.html"), "utf-8");
     const links = await loadLinks();
 
-    const list = Object.entries(links)
-      .map(
-        ([code, url]) => `
-        <li>
-          <a href="/${code}" target="_blank">
-            ${req.protocol}://${req.get("host")}/${code}
-          </a>
-          <small>${url}</small>
-        </li>
-      `
-      )
-      .join("");
+    
 
-    res.send(html.replace("{{shortened_url}}", list));
+    res.render("index", { links, host: req.host});
   } catch (err) {
     console.error(err);
     res.send("Error loading page");

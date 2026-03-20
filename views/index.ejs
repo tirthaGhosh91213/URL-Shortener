@@ -179,8 +179,21 @@
 
     <div class="list">
       <h2>🔗 Your Links</h2>
-      <ul>
-        {{shortened_url}}
+
+     <!-- don't use the map method to iterate over the array of objects because it will return an array of strings and we don't want that we want to render the list items directly in the ejs file so we can use the forEach method to iterate over the array of objects and render the list items directly in the ejs file. -->
+
+     
+    <ul>
+     <% Object.entries(links).forEach(([code, url]) => {%> 
+        <li>
+          <a href="/<%= code %>" target="_blank">
+            <%= host %>/<%= code %>-
+          </a>
+          <small><%= url %></small>
+        </li>
+      <% }) %>
+     
+        
       </ul>
     </div>
   </div>

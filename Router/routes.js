@@ -3,8 +3,6 @@ import { getURLShortner, postUrlShortner, redirectShortCode } from "../controlle
 
 const router = Router();
 
-
-
 // ================= HOME =================
 router.get("/",getURLShortner );
 
@@ -15,7 +13,7 @@ router.post("/", postUrlShortner);
 router.get("/:code", redirectShortCode);
 
 /*
-// how to render the data in the ejs file using the render method of the response object and passing the data as an object to the render method and then we can access the data in the ejs file using the name of the key of the object that we passed to the render method .
+how to render the data in the ejs file using the render method of the response object and passing the data as an object to the render method and then we can access the data in the ejs file using the name of the key of the object that we passed to the render method .
 
 router.get("/report",(req,res)=>{
   const student =[{ name:"Tirtha Ghosh", age:21, cource:"MERN Stack", batch:"Thapa Technical" },
