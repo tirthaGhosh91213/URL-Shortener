@@ -2,6 +2,7 @@ import { Router } from "express";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 import crypto from "crypto";
+// import { name } from "ejs";
 
 const router = Router();
 
@@ -72,6 +73,15 @@ router.post("/", async (req, res) => {
     res.send("Error");
   }
 });
+router.get("/report",(req,res)=>{
+  const student =[{ name:"Tirtha Ghosh", age:21, cource:"MERN Stack", batch:"Thapa Technical" },
+    {name:"Mohit Kumar", age:22, cource:"MERN Stack", batch:"Thapa Technical" },
+    {name:"Satyarth", age:21, cource:"MERN Stack", batch:"Thapa Technical" },
+    {name:"Shivam", age:21, cource:"MERN Stack", batch:"Thapa Technical" },
+    {name:"Satyarth", age:21, cource:"MERN Stack", batch:"Thapa Technical" },
+  ]
+  res.render('report',{student});
+})
 
 // ================= REDIRECT =================
 router.get("/:code", async (req, res) => {

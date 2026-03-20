@@ -11,6 +11,11 @@ await mkdir("data", { recursive: true });
 // middleware
 app.use(express.urlencoded({ extended: true }));
 
+app.set("view engine","ejs");
+// app.set("views", "./views");   // OPTIONAL: Default is "./views"
+
+
+
 // routes
 app.use("/", router);
 

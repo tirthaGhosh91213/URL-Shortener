@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Hey Welcome to Tirtha's Report </h1>
+  <ul>
+   <% for(let i=0; i<student.length; i++){ %>
+      <li>Name : <%= student[i].name %></li>
+      <p>Age: <%= student[i].age %></p>
+      <p>Course: <%= student[i].cource %></p>
+      <p>Batch: <%= student[i].batch %></p>
+   <% } %>
+  </ul>
+
+  <!-- <h2><%= student.name %></h2>
+  <p>Age: <%= student.age %></p>
+  <p>Course: <%= student.cource %></p>
+  <p>Batch: <%= student.batch %></p> -->
+
+</body>
+</html>
