@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3005;
 
 // create data folder
-await mkdir("data", { recursive: true });
+// await mkdir("data", { recursive: true });
 
 // middleware
 app.use(express.urlencoded({ extended: true }));

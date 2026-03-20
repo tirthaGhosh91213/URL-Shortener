@@ -6,9 +6,10 @@
   <title>Document</title>
 </head>
 <body>
+  <%- include('header') %>
   <h1>Hey Welcome to Tirtha's Report </h1>
   <ul>
-   <% for(let i=0; i<student.length; i++){ %>
+   <% for(let i=0; i<student.length; i++){ %> // we can also use the map method to iterate over the array of objects
       <li>Name : <%= student[i].name %></li>
       <p>Age: <%= student[i].age %></p>
       <p>Course: <%= student[i].cource %></p>
