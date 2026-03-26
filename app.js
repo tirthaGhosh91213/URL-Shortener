@@ -2,10 +2,12 @@ import express from "express";
 import router from "./Router/routes.js";
 import { mkdir } from "fs/promises";
 import dotenv from "dotenv";
+import connectDB from "./Configs/db.js";
 
 dotenv.config();
 
 const app = express();
+connectDB();
 const PORT = process.env.PORT || 3000;
 // const PORT = 3005;
 
