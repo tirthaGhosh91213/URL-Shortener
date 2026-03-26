@@ -1,9 +1,13 @@
 import express from "express";
 import router from "./Router/routes.js";
 import { mkdir } from "fs/promises";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = 3005;
+const PORT = process.env.PORT || 3000;
+// const PORT = 3005;
 
 // create data folder
 // await mkdir("data", { recursive: true });
